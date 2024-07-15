@@ -5,11 +5,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../models/user/user.dart';
 
-class FirebaseUserRepo {
+class UserRepository {
   final FirebaseAuth _firebaseAuth;
   final usersCollection = FirebaseFirestore.instance.collection('users');
 
-  FirebaseUserRepo({
+  UserRepository({
     FirebaseAuth? firebaseAuth,
   }) : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
