@@ -1,24 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+import 'app.dart';
+import 'simple_bloc_observer.dart';
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Main App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Main App'),
-        ),
-        body: const Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  Bloc.observer = SimpleBlocObserver();
+  runApp(const MyApp());
 }
